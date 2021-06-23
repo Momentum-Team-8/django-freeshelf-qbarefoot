@@ -8,8 +8,10 @@
     {% for book in books %}
         <div class="card">
             {% if book.title %}
-                <p class="book_title">{{book.title}}</p> 
+                <p class="book_title"><a href="{{book.book_URL}}" target="_blank">{{book.title}}</a></p> 
                 <p class="book_author">{{book.author}}</p>
+                <p class="description">{{book.description}}</p>
+                <p class="created_at">added: {{book.created_at}}</p>
             {% endif %}
         </div>
     {% endfor %}

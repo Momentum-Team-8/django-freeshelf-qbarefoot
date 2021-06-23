@@ -1,4 +1,3 @@
-
 from django.forms import ModelForm
 
 from .models import Book
@@ -9,4 +8,8 @@ class BookForm(ModelForm):
         fields = [
             'title', 
             'author',
+            'book_URL',
+            'description',
+            'created_at',
+            'cover_art',
         ]

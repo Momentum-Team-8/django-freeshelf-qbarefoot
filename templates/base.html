@@ -1,12 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
     <title>Freeshelf</title>
   </head>
   <body>
-    <h1>Login</h1>
+    <h1>Freeshelf</h1>
+  <nav>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{user.username}}!</p>
+  <a href="{% url 'auth_logout' %}">Logout</a>
+  {% else %}
+  <p>Please login to see this page.</p>
+  <a href="{% url 'auth_login' %}">Login</a>
+  {% endif %}
+  </nav>
     <div>
       {% block content %}
       {% endblock %}
