@@ -11,5 +11,4 @@ class BookForm(ModelForm):
             'book_URL',
             'description',
             'created_at',
-            'cover_art',
         ]

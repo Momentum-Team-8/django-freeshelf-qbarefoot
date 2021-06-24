@@ -4,8 +4,8 @@
 
 <h1 class="page_title">All Books</h1>
 
-<div class="container">
-    {% for book in books %}
+{% for book in books %}
+<div class="container"> 
         <div class="card">
             {% if book.title %}
                 <p class="book_title"><a href="{{book.book_URL}}" target="_blank">{{book.title}}</a></p> 
@@ -14,6 +14,14 @@
                 <p class="created_at">added: {{book.created_at}}</p>
             {% endif %}
         </div>
+        <div>
+        <p>
+            
+            {% for category in book.categories.all %}
+            <li><a href="{% url 'categories_books' slug=category.slug %}">{{category.name}}</a></li>
+            {% endfor %}
+        </p>
+        </div>
+</div> 
     {% endfor %}
-</div>
 {% endblock %}
